@@ -1,6 +1,9 @@
 # devi_binja
 Binary Ninja Plugin for devi. For a detailed description how devi works see its [repository](https://github.com/murx-/devi/). This plugin uses the newly introduced possibility to add cross-references in binary ninja to devirtualize virtual calls. 
 
+Devi consits of two components, one for dynamic analysis (DBI) and one for static analysis (disassembler). This repository is only the static analysis part for binary ninja. See https://github.com/murx-/devi/ for the details of the dynamic part. 
+
+
 ## Minimal Example
 
 ### Disassembly
