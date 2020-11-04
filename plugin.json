@@ -2,15 +2,15 @@
 	"pluginmetadataversion" : 2,
 	"name": "devi",
 	"type": ["ui", "helper"],
-	"api": ["python2", "python3"],
+	"api": ["python3"],
 	"description": "devi - DEvirtualize VIrtual calls in C++ binaries",
-	"longdescription": "devi - DEvirtualize VIrtual calls in C++ binaries with the help of frida.",
+	"longdescription": "# devi_binja\nBinary Ninja Plugin for devi. For a detailed description how devi works see its [repository](https://github.com/murx-/devi/). This plugin uses the newly introduced possibility to add cross-references in binary ninja to devirtualize virtual calls. \n\nDevi consits of two components, one for dynamic analysis (DBI) and one for static analysis (disassembler). This repository is only the static analysis part for binary ninja. See https://github.com/murx-/devi/ for the details of the dynamic part. \n\n\n## Minimal Example\n\n### Disassembly\n\nBefore:\n\n![Disassembly before devi](https://github.com/murx-/devi_binja/blob/master/images/main_before_devi.png?raw=true)\n\n\nAfter:\n\n![Disassembly with devi](https://github.com/murx-/devi_binja/blob/master/images/main_after_devi.png?raw=true)\n\n### XRefs\n\n\nBefore:\n\n![Xrefs before devi](https://github.com/murx-/devi_binja/blob/master/images/xrefs_before_devi.png?raw=true)\n\nAfter:\n\n![Xrefs after devi](https://github.com/murx-/devi_binja/blob/master/images/xrefs_after_devi.png?raw=true)",
 	"license": {
 		"name": "MIT",
-		"text": "Copyright (c) <year> <copyright holders>\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \"Software\"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE."
+		"text": "Copyright (c) 2020 murks\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \"Software\"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE."
 	},
 	"platforms" : ["Darwin", "Linux", "Windows"],
-	"version": "0.1",
+	"version": "0.2",
 	"author": "@_murks",
 	"minimumbinaryninjaversion": 1200
 }
