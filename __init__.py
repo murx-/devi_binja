@@ -81,9 +81,9 @@ class binja_devi():
         to_func = self.bv.get_function_at(to_addr)
         if to_func is None:
             return False
-        _, name = demangle.demangle_gnu3(self.bv.arch, to_func.name)
         old_comment = self.caller.get_comment_at(from_addr)
-        self.caller.set_comment_at(from_addr, demangle.get_qualified_name(name) + "\n" + old_comment)
+        if to_func.name not in old_comment:
+            self.caller.set_comment_at(from_addr, to_func.name + "\n" + old_comment)
         return True
 
 PluginCommand.register("devi", "DEvirtualize VIrtual calls", binja_devi)
