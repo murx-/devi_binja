@@ -55,7 +55,10 @@ class binja_devi():
 
                     self.caller = self.bv.get_functions_containing(src)[0]
                     self.caller.add_user_code_ref(src, dst, from_arch=None)
-                    self.add_call_comment(src, dst)
+                    found = self.add_call_comment(src, dst)
+
+                    if not found:
+                        log.log(2, f"Out of module call: {call} -> {hex(int(v_call[call]))}")
                     self.call_cnt += 1
         log.log(1, "Devirtualized {} calls".format(self.call_cnt))
 
@@ -76,8 +79,11 @@ class binja_devi():
 
     def add_call_comment(self, from_addr, to_addr):
         to_func = self.bv.get_function_at(to_addr)
-        _, name = demangle.demangle_gnu3(self.bv.arch, to_func.name)
+        if to_func is None:
+            return False
         old_comment = self.caller.get_comment_at(from_addr)
-        self.caller.set_comment_at(from_addr, demangle.get_qualified_name(name) + "\n" + old_comment)
+        if to_func.name not in old_comment:
+            self.caller.set_comment_at(from_addr, to_func.name + "\n" + old_comment)
+        return True
 
 PluginCommand.register("devi", "DEvirtualize VIrtual calls", binja_devi)
